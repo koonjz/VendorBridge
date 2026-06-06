@@ -1,0 +1,127 @@
+.reports-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.report-span-2 {
+  grid-column: auto;
+}
+
+@media (min-width: 1025px) {
+  .reports-grid > :nth-child(3) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Bar Chart */
+.mock-chart-area {
+  height: 250px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 1rem 0 2rem 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-top: 1rem;
+}
+
+.report-chart-bar {
+  width: 40px;
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: bar-grow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: bottom;
+}
+
+.report-chart-bar:hover {
+  background: var(--accent-primary);
+  transform: scaleY(1.05);
+}
+
+.report-chart-bar span {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+@keyframes bar-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* Donut Chart */
+.donut-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.mock-donut {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #3b82f6 0% 45%, 
+    #8b5cf6 45% 75%, 
+    #10b981 75% 90%, 
+    #f59e0b 90% 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.donut-center {
+  width: 130px;
+  height: 130px;
+  background: var(--bg-card);
+  border-radius: 50%;
+}
+
+@keyframes spin-in {
+  from { transform: scale(0.5) rotate(-90deg); opacity: 0; }
+  to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.donut-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.c1 { background: #3b82f6; }
+.dot.c2 { background: #8b5cf6; }
+.dot.c3 { background: #10b981; }
+.dot.c4 { background: #f59e0b; }
+
+.text-success { color: var(--success); }
+.fw-500 { font-weight: 500; }

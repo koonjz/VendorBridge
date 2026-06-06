@@ -1,0 +1,67 @@
+.quotation-list-card {
+  padding: 1.5rem;
+}
+
+.readonly-banner {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--danger);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.quote-form-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .quote-form-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.final-amount-box {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px dashed var(--border-color);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.final-amount-box strong {
+  font-size: 1.25rem;
+  color: var(--success);
+}
+
+.rfq-reference-info p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.rfq-reference-info strong {
+  color: var(--text-primary);
+}

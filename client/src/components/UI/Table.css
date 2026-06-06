@@ -1,0 +1,48 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+}
+
+.glass-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.glass-table th,
+.glass-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.glass-table th {
+  background-color: rgba(15, 23, 42, 0.4);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.glass-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.glass-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.glass-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-empty {
+  text-align: center;
+  padding: 3rem !important;
+  color: var(--text-muted);
+  font-style: italic;
+}
