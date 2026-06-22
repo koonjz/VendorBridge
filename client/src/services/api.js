@@ -1,15 +1,15 @@
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = import.meta.env.VITE_API_URL + "/api";
 
 const request = async (endpoint, options = {}) => {
-  const token = localStorage.getItem('token');
-  
+  const token = localStorage.getItem("token");
+
   const headers = {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
     ...options.headers,
   };
 
   if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
+    headers["Authorization"] = `Bearer ${token}`;
   }
 
   const response = await fetch(`${BASE_URL}${endpoint}`, {
@@ -19,7 +19,7 @@ const request = async (endpoint, options = {}) => {
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.message || 'API request failed');
+    throw new Error(errorData.message || "API request failed");
   }
 
   return response.json();
@@ -27,7 +27,9 @@ const request = async (endpoint, options = {}) => {
 
 export const api = {
   get: (endpoint) => request(endpoint),
-  post: (endpoint, body) => request(endpoint, { method: 'POST', body: JSON.stringify(body) }),
-  put: (endpoint, body) => request(endpoint, { method: 'PUT', body: JSON.stringify(body) }),
-  delete: (endpoint) => request(endpoint, { method: 'DELETE' }),
+  post: (endpoint, body) =>
+    request(endpoint, { method: "POST", body: JSON.stringify(body) }),
+  put: (endpoint, body) =>
+    request(endpoint, { method: "PUT", body: JSON.stringify(body) }),
+  delete: (endpoint) => request(endpoint, { method: "DELETE" }),
 };
